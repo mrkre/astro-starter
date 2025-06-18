@@ -1,0 +1,24 @@
+---
+description: 
+globs: doc/adr/*
+alwaysApply: false
+---
+## ADR Standards
+- Use MADR 4.0.0 template format
+- Always include: Context, Decision, Consequences
+- Reference existing ADRs using @file
+- Validate against architecture principles (@architecture.md)
+
+## ADR Validation
+- Prohibit "TBD" in Status field
+- Require at least 1 stakeholders listed
+- Enforce decision expiration dates
+
+## ADR Creation
+- Follow RFC-2119 keyword conventions
+- Include required sections: Context, Decision, Status, Consequences
+- Reference related ADRs using @file syntax
+- Explicitly document context and assumptions
+- Provide a detailed and balanced analysis of pros and cons
+- Clearly list multiple alternatives to mitigate AI's premature convergence on the first viable solution
+- Require detailed reasoning and supporting evidence for recommendations

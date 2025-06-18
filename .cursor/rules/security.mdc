@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Security Guidelines
+
+## Configuration Security
+- Prompt users to securely manage secrets using environment variables or dedicated secret management systems.
+- Warn if sensitive data (secrets, keys, passwords) might be committed to version control.
+- Encourage regular secret rotation and use encrypted configuration storage.
+- Guide users to set distinct credentials for development, staging, and production environments.
+
+## Authentication & Authorization
+- Recommend robust authentication methods like OAuth 2.0 or OpenID Connect.
+- Advise enforcing multi-factor authentication (MFA) for sensitive operations.
+- Suggest implementing Role-Based Access Control (RBAC).
+- Remind users about the principle of least privilege.
+
+## Data Protection
+- Prompt the encryption of sensitive data both at rest and in transit (TLS/HTTPS).
+- Highlight the importance of input validation and sanitization to avoid injection attacks.
+- Encourage implementing output encoding techniques to prevent cross-site scripting (XSS).
+- Recommend database security measures such as access restrictions and audits.
+
+## API Security
+- Remind users to secure APIs using keys or tokens with clearly defined scopes.
+- Suggest thorough input validation for API endpoints.
+- Advise proper error handling practices that avoid exposing sensitive information.
+
+## Infrastructure Security
+- Suggest regular container and infrastructure vulnerability scans.
+- Guide users in applying security hardening best practices to containers and hosts.
+- Encourage network segmentation to restrict access.
+- Recommend Web Application Firewalls (WAF) and egress filtering.
+
+## Logging & Monitoring
+- Advise enabling security event logging.
+- Suggest centralizing log collection and analysis.
+- Recommend configuring alerts for suspicious activities.
+- Warn users against logging sensitive information.
+
+## Dependency Management
+- Prompt regular scanning and monitoring of dependencies for vulnerabilities.
+- Encourage keeping dependencies updated with security patches.
+- Suggest using dependency lockfiles to manage stable builds.
+- Remind users to vet third-party libraries thoroughly.
+
+## Resilience & Availability
+- Highlight robust error handling practices.
+- Recommend designing systems that degrade gracefully under failure.
+- Advise measures against Denial of Service (DoS) attacks.
+- Suggest circuit breakers for external service integrations.
+- Guide users to establish and regularly test disaster recovery plans.
+
+## Secure Software Development Lifecycle (SDLC)
+- Encourage routine security testing (Static, Dynamic, Interactive).
+- Recommend secure and regular code reviews.
+- Suggest regular penetration testing.
+- Highlight proactive vulnerability management.
+- Advise securing CI/CD pipelines with appropriate controls.
+
+## Compliance & Governance
+- Recommend clearly documenting security policies and controls.
+- Guide users on compliant data retention policies.
+- Remind adherence to relevant regulations (GDPR, HIPAA).
+- Encourage ongoing security awareness training.
+- Advise maintaining comprehensive incident response plans.
