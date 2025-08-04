@@ -43,7 +43,6 @@ export default defineConfig([
     languageOptions: {
       parser: eslintPluginAstro.parser,
       parserOptions: {
-        parser: typescriptEslint.parser,
         extraFileExtensions: [".astro"],
         sourceType: "module",
         ecmaVersion: "latest",
