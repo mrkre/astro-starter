@@ -6,7 +6,6 @@ import typescriptEslint from "typescript-eslint";
 import eslintPluginAstro from "eslint-plugin-astro";
 import eslintPluginPrettier from "eslint-plugin-prettier";
 
-
 export default defineConfig([
 	{
 		languageOptions: {
@@ -23,8 +22,28 @@ export default defineConfig([
 		},
 		extends: ["js/recommended"],
 	},
-	typescriptEslint.configs.recommended,
-	eslintPluginAstro.configs.recommended,
+	// TypeScript config - only for .ts and .tsx files
+	{
+		files: ["**/*.ts", "**/*.tsx"],
+		...typescriptEslint.configs.recommended,
+	},
+	// Astro config - for .astro files
+	{
+		files: ["**/*.astro"],
+		...eslintPluginAstro.configs.recommended,
+		languageOptions: {
+			parser: eslintPluginAstro.parser,
+			parserOptions: {
+				extraFileExtensions: [".astro"],
+				sourceType: "module",
+				ecmaVersion: "latest",
+			},
+		},
+		rules: {
+			"no-undef": "off",
+			"@typescript-eslint/no-explicit-any": "off",
+		},
+	},
 	{
 		plugins: {
 			prettier: eslintPluginPrettier,
@@ -39,22 +58,6 @@ export default defineConfig([
 		},
 	},
 	{
-    files: ["**/*.astro"],
-    languageOptions: {
-      parser: eslintPluginAstro.parser,
-      parserOptions: {
-        extraFileExtensions: [".astro"],
-        sourceType: "module",
-        ecmaVersion: "latest",
-        project: "./tsconfig.json",
-      },
-    },
-    rules: {
-      "no-undef": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
-	{
-    ignores: ["dist/**", "**/*.d.ts", ".github/"],
-  },
+		ignores: ["dist/**", "**/*.d.ts", ".github/"],
+	},
 ]);
