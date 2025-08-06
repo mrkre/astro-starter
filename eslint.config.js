@@ -20,17 +20,17 @@ export default defineConfig([
 	...eslintPluginAstro.configs.recommended,
 	{
 		files: ["**/*.astro"],
+		processor: "astro/client-side-ts",
 		languageOptions: {
 			parser: eslintPluginAstro.parser,
 			parserOptions: {
 				parser: tseslint.parser,
 				extraFileExtensions: [".astro"],
 				sourceType: "module",
+				ecmaVersion: "latest",
 			},
 		},
 		rules: {
-			"no-undef": "off",
-			"@typescript-eslint/no-explicit-any": "off",
 			"prettier/prettier": "off",
 		},
 	},
